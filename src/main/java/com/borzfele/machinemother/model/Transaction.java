@@ -10,6 +10,8 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+    @Column(name = "name")
+    String name;
     @Column(name = "value")
     long value;
     @Column(name = "description")
@@ -20,6 +22,30 @@ public class Transaction {
     boolean isContinous;
 
     public Transaction() {
+    }
+
+    public Transaction(String name, long value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    public Transaction(String name, long value, String description) {
+        this.name = name;
+        this.value = value;
+        this.description = description;
+    }
+
+    public Transaction(String name, long value, boolean isContinous) {
+        this.name = name;
+        this.value = value;
+        this.isContinous = isContinous;
+    }
+
+    public Transaction(String name, long value, String description, boolean isContinous) {
+        this.name = name;
+        this.value = value;
+        this.description = description;
+        this.isContinous = isContinous;
     }
 
     public long getId() {
