@@ -10,3 +10,4 @@ public class MachineMother {
         SpringApplication.run(MachineMother.class, args);
     }
 }
+

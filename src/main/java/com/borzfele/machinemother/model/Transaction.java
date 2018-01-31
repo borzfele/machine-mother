@@ -1,6 +1,7 @@
 package com.borzfele.machinemother.model;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -16,8 +17,8 @@ public class Transaction {
     long value;
     @Column(name = "description")
     String description;
-    @Column(name="date", insertable=false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT_TIMESTAMP")
-    Date date;
+    @Column(name="date", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable=false)
+    private Calendar date;
     @Column(name = "continous")
     boolean isContinous;
 
@@ -56,6 +57,14 @@ public class Transaction {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public long getValue() {
         return value;
     }
@@ -72,11 +81,11 @@ public class Transaction {
         this.description = description;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 
@@ -94,7 +103,7 @@ public class Transaction {
                 "id=" + id +
                 ", value=" + value +
                 ", description='" + description + '\'' +
-                ", date=" + date +
+                //", date=" + date +
                 ", isContinous=" + isContinous +
                 '}';
     }

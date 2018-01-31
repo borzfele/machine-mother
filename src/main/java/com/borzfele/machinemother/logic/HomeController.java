@@ -12,5 +12,4 @@ public class HomeController {
     public String renderIndex(Model model) {
         return "home/index";
     }
-
 }
