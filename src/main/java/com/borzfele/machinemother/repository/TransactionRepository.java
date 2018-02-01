@@ -11,5 +11,5 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long>{
     @Override
     Transaction findOne(Long transactionId);
 
-    List<Transaction> findByDate(Date transactionDate);
+    List<Transaction> findByDate(int transactionDay);
 }

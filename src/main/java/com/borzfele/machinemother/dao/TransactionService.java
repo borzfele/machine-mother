@@ -28,32 +28,34 @@ public class TransactionService {
             return TransactionRepository.findOne(id);
         }
 
-        public List<Transaction> findByDate(Date date) {
-            return TransactionRepository.findByDate(date);
+        public List<Transaction> findByDate(int dayId) {
+            return TransactionRepository.findByDate(dayId);
         }
 
         public long getSumOfIncome() {
             long sumOfIncome = 0;
-            List<Transaction> transactions = new ArrayList<Transaction>();
-            transactions = getAll();
+            List<Transaction> transactions = getAll();
 
-            for (Transaction transaction : transactions) {
-                if (transaction.getValue() > 0) {
-                    sumOfIncome += transaction.getValue();
+            if (transactions != null) {
+                for (Transaction transaction : transactions) {
+                    if (transaction.getValue() > 0) {
+                        sumOfIncome += transaction.getValue();
+                    }
                 }
             }
 
             return sumOfIncome;
         }
 
-        public long getSumOfIncomeByDay(Date date) {
+        public long getSumOfIncomeByDay(int dayId) {
             long sumOfIncome = 0;
-            List<Transaction> incomesByDay = new ArrayList<Transaction>();
-            incomesByDay = findByDate(date);
+            List<Transaction> allIncome = getAll();
 
-            for (Transaction transaction : incomesByDay) {
-                if (transaction.getValue() > 0) {
-                    sumOfIncome += transaction.getValue();
+            if (allIncome != null) {
+                for (Transaction transaction : allIncome) {
+                    if (transaction.getValue() > 0 && transaction.getDate().get(Calendar.DAY_OF_MONTH) == dayId) {
+                        sumOfIncome += transaction.getValue();
+                    }
                 }
             }
 
