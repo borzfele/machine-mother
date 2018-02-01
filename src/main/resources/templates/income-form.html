@@ -21,9 +21,8 @@
             description
             <input type="text" th:field="*{description}"/>
         </div>
-        <div>
-            is monthly
-            <input type="checkbox" th:value="true" th:field="*{isContinous}"/>
+        <div id="isCont">
+            <input type="checkbox" th:name="isCont"/>
         </div>
         <button type="submit">Save</button>
     </form>
