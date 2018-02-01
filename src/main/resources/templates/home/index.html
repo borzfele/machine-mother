@@ -25,6 +25,14 @@
                 <div class="container element" id="daily-expenses-label">Daily Expenses</div>
                 <div class="container element" id="daily-expenses-value" th:text="${sumOfDailyExpenses}"></div>
             </div>
+            <div class="container" id="daily-balance">
+                <div class="container element" id="daily-balance-label">Daily Balance</div>
+                <div class="container element" id="daily-balance-value" th:text="${dailyBalance}"></div>
+            </div>
+            <div class="container" id="avg-expenses-per-day">
+                <div class="container element" id="avg-expenses-per-day-label">Average Expenses/Day</div>
+                <div class="container element" id="avg-expenses-per-day-value" th:text="${avgExpensesPerDay}"></div>
+            </div>
 
             <div class="container element" id="budget-element-add-income">
                 <a href="/add-new-income">
