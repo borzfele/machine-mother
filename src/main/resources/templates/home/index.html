@@ -21,6 +21,11 @@
                 <div class="container element" id="daily-income-label">Daily Income</div>
                 <div class="container element" id="daily-income-value" th:text="${sumOfDailyIncome}"></div>
             </div>
+            <div class="container" id="daily-expenses">
+                <div class="container element" id="daily-expenses-label">Daily Expenses</div>
+                <div class="container element" id="daily-expenses-value" th:text="${sumOfDailyExpenses}"></div>
+            </div>
+
             <div class="container element" id="budget-element-add-income">
                 <a href="/add-new-income">
                     <button>Add income</button>

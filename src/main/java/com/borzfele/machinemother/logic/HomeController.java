@@ -21,6 +21,7 @@ public class HomeController {
     public String renderIndex(Model model) {
 
         model.addAttribute("sumOfDailyIncome", transactionService.getSumOfIncomeByDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)));
+        model.addAttribute("sumOfDailyExpenses", transactionService.getSumOfExpensesByDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)));
 
         return "home/index";
     }

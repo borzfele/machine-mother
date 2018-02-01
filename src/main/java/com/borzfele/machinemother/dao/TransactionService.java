@@ -28,10 +28,6 @@ public class TransactionService {
             return TransactionRepository.findOne(id);
         }
 
-        public List<Transaction> findByDate(int dayId) {
-            return TransactionRepository.findByDate(dayId);
-        }
-
         public long getSumOfIncome() {
             long sumOfIncome = 0;
             List<Transaction> transactions = getAll();
@@ -49,10 +45,10 @@ public class TransactionService {
 
         public long getSumOfIncomeByDay(int dayId) {
             long sumOfIncome = 0;
-            List<Transaction> allIncome = getAll();
+            List<Transaction> allTransactions = getAll();
 
-            if (allIncome != null) {
-                for (Transaction transaction : allIncome) {
+            if (allTransactions != null) {
+                for (Transaction transaction : allTransactions) {
                     if (transaction.getValue() > 0 && transaction.getDate().get(Calendar.DAY_OF_MONTH) == dayId) {
                         sumOfIncome += transaction.getValue();
                     }
@@ -60,6 +56,21 @@ public class TransactionService {
             }
 
             return sumOfIncome;
+        }
+
+        public long getSumOfExpensesByDay(int dayId) {
+            long sumOfExpenses = 0;
+            List<Transaction> allTransactions = getAll();
+
+            if (allTransactions != null) {
+                for (Transaction transaction : allTransactions) {
+                    if (transaction.getValue() < 0 && transaction.getDate().get(Calendar.DAY_OF_MONTH) == dayId) {
+                        sumOfExpenses += transaction.getValue();
+                    }
+                }
+            }
+
+            return sumOfExpenses;
         }
 
 }
