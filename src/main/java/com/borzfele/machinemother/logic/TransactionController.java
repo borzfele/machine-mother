@@ -35,7 +35,7 @@ public class TransactionController {
         } else {
             transaction.setContinous(false);
         }
-        transactionService.saveTransaction(transaction);
+        transactionService.addTransaction(transaction);
         return "redirect:/";
     }
 
@@ -53,7 +53,7 @@ public class TransactionController {
             transaction.setContinous(false);
         }
         transaction.setValue(transaction.getValue() * -1);
-        transactionService.saveTransaction(transaction);
+        transactionService.addTransaction(transaction);
         return "redirect:/";
     }
 }

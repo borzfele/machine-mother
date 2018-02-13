@@ -33,6 +33,18 @@
                 <div class="container element" id="avg-expenses-per-day-label">Average Expenses/Day</div>
                 <div class="container element" id="avg-expenses-per-day-value" th:text="${avgExpensesPerDay}"></div>
             </div>
+            <div class="container" id="income-this-month">
+                <div class="container element" id="income-this-month-label">This Month's Income</div>
+                <div class="container element" id="income-this-month-value" th:text="${monthlyIncome}"></div>
+            </div>
+            <div class="container" id="expenses-this-month">
+                <div class="container element" id="expenses-this-month-label">This Month's Expenses</div>
+                <div class="container element" id="expenses-this-month-value" th:text="${monthlyExpenses}"></div>
+            </div>
+            <div class="container" id="monthly-balance">
+                <div class="container element" id="monthly-balance-label">Monthly Balance</div>
+                <div class="container element" id="monthly-balance-value" th:text="${monthlyBalance}"></div>
+            </div>
 
             <div class="container element" id="budget-element-add-income">
                 <a href="/add-new-income">

@@ -18,15 +18,23 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String renderIndex(Model model) {
+        Calendar calendar = Calendar.getInstance();
+        Calendar prevMonth = Calendar.getInstance();
+        prevMonth.set(Calendar.MONTH, prevMonth.get(Calendar.MONTH) - 1);
 
-        long incomeByDay = transactionService.getSumOfIncomeByDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        long expensesByDay = transactionService.getSumOfExpensesByDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        long avgExpensesPerDay = transactionService.getAvgOfDailyExpensesOfLastMonth();
+        long incomeByDay = transactionService.getSumOfIncome(transactionService.findByYearAndMonthAndDay(calendar));
+        long expensesByDay = transactionService.getSumOfExpenses(transactionService.findByYearAndMonthAndDay(calendar));
+        long avgExpensesPerDay = transactionService.getAvgOfDailyExpenses(prevMonth);
+        long monthlyIncome = transactionService.getSumOfIncome(transactionService.findByYearAndMonth(calendar));
+        long monthlyExpenses = transactionService.getSumOfExpenses(transactionService.findByYearAndMonth(calendar));
 
         model.addAttribute("sumOfDailyIncome", incomeByDay);
         model.addAttribute("sumOfDailyExpenses", expensesByDay);
-        model.addAttribute("dailyBalance", incomeByDay + expensesByDay);
+        model.addAttribute("dailyBalance", incomeByDay - expensesByDay);
         model.addAttribute("avgExpensesPerDay", avgExpensesPerDay);
+        model.addAttribute("monthlyIncome", monthlyIncome);
+        model.addAttribute("monthlyExpenses", monthlyExpenses);
+        model.addAttribute("monthlyBalance", monthlyIncome - monthlyExpenses);
 
         return "home/index";
     }
