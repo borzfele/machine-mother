@@ -13,15 +13,15 @@ import java.util.Calendar;
 public class HomeController {
 
     @Autowired
-    private TransactionController transactionController;
+    private TransactionService transactionService;
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String renderIndex(Model model) {
 
-        long incomeByDay = transactionController.getSumOfIncomeByDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        long expensesByDay = transactionController.getSumOfExpensesByDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        long avgExpensesPerDay = transactionController.getAvgOfDailyExpensesOfLastMonth();
+        long incomeByDay = transactionService.getSumOfIncomeByDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        long expensesByDay = transactionService.getSumOfExpensesByDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        long avgExpensesPerDay = transactionService.getAvgOfDailyExpensesOfLastMonth();
 
         model.addAttribute("sumOfDailyIncome", incomeByDay);
         model.addAttribute("sumOfDailyExpenses", expensesByDay);

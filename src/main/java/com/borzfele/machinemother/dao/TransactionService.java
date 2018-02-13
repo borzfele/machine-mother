@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.swing.tree.TreeNode;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class TransactionService {
@@ -79,6 +76,7 @@ public class TransactionService {
         int currentYear = calendar.get(Calendar.YEAR);
         int currentMonth = calendar.get(Calendar.MONTH);
         List<Transaction> everyTransaction = getAll();
+        System.out.println(everyTransaction);
         List<Transaction> expensesInGivenMonth = new ArrayList<Transaction>();
 
         if (calendar.get(Calendar.MONTH) == Calendar.JANUARY) {
@@ -96,14 +94,14 @@ public class TransactionService {
                 }
             }
         }
-
+        System.out.println(expensesInGivenMonth);
         return expensesInGivenMonth;
     }
 
     public long getAvgOfDailyExpensesOfLastMonth() {
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = new GregorianCalendar();
         long sum = 0;
-        List<Transaction> dailyExpenses = getExpensesOfLastMonth(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH));
+        List<Transaction> dailyExpenses = getExpensesOfLastMonth();
 
         for (Transaction transaction : dailyExpenses) {
             sum += transaction.getValue();
@@ -115,7 +113,6 @@ public class TransactionService {
             return 0;
         }
     }
-
 
 
 }

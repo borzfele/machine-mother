@@ -18,11 +18,9 @@ import java.util.List;
 public class TransactionController {
 
     private TransactionService transactionService;
-    private TransactionRepository transactionRepository;
 
-    public TransactionController(TransactionService transactionService, TransactionRepository transactionRepository) {
+    public TransactionController(TransactionService transactionService) {
         this.transactionService = transactionService;
-        this.transactionRepository = transactionRepository;
     }
     @RequestMapping(value = "/add-new-income", method = RequestMethod.GET)
     public String renderAddIncomeForm(Model model) {
