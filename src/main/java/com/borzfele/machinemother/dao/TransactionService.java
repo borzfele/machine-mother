@@ -5,7 +5,9 @@ import com.borzfele.machinemother.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.swing.tree.TreeNode;
+import java.lang.reflect.Array;
 import java.util.*;
 
 @Service
@@ -27,91 +29,79 @@ public class TransactionService {
     }
 
     public void addTransaction(Transaction transaction) {
-        saveTransaction(transaction);
-    }
-
-    public long getAvgOf(List<Transaction> listOfTransactions) {
-        long sumOfIncome = 0;
-
-        if (listOfTransactions != null) {
-            for (Transaction transaction : listOfTransactions) {
-                sumOfIncome += transaction.getValue();
-            }
-        }
-
-        return sumOfIncome / listOfTransactions.size();
-    }
-
-    public long getSumOfIncomeByDay(int dayId) {
-        long sumOfIncome = 0;
-        List<Transaction> allTransactions = getAll();
-
-        if (allTransactions != null) {
-            for (Transaction transaction : allTransactions) {
-                if (transaction.getValue() > 0 && transaction.getDate().get(Calendar.DAY_OF_MONTH) == dayId) {
-                    sumOfIncome += transaction.getValue();
-                }
-            }
-        }
-        return sumOfIncome;
-    }
-
-    public long getSumOfExpensesByDay(int dayId) {
-        long sumOfExpenses = 0;
-        List<Transaction> allTransactions = getAll();
-
-        if (allTransactions != null) {
-            for (Transaction transaction : allTransactions) {
-                if (transaction.getValue() < 0 && transaction.getDate().get(Calendar.DAY_OF_MONTH) == dayId) {
-                    sumOfExpenses += transaction.getValue();
-                }
-            }
-        }
-
-        return sumOfExpenses;
-    }
-
-    private List<Transaction> getExpensesOfLastMonth(int yearId, int monthId) {
-        Calendar calendar = Calendar.getInstance();
-        int currentYear = calendar.get(Calendar.YEAR);
-        int currentMonth = calendar.get(Calendar.MONTH);
-        List<Transaction> everyTransaction = getAll();
-        System.out.println(everyTransaction);
-        List<Transaction> expensesInGivenMonth = new ArrayList<Transaction>();
-
-        if (calendar.get(Calendar.MONTH) == Calendar.JANUARY) {
-            for (Transaction transaction : everyTransaction) {
-                if (transaction.getDate().get(Calendar.YEAR) == currentYear - 1
-                        && transaction.getDate().get(Calendar.MONTH) == Calendar.DECEMBER) {
-                    expensesInGivenMonth.add(transaction);
-                }
-            }
+        if (transaction.getYear() != 0) {
+            saveTransaction(transaction);
         } else {
-            for (Transaction transaction : everyTransaction) {
-                if (transaction.getDate().get(Calendar.YEAR) == currentYear
-                        && transaction.getDate().get(Calendar.MONTH) == currentMonth - 1) {
-                    expensesInGivenMonth.add(transaction);
-                }
-            }
+            transaction.setYear(Calendar.getInstance().get(Calendar.YEAR));
+            transaction.setMonth(Calendar.getInstance().get(Calendar.MONTH));
+            transaction.setDay(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+            saveTransaction(transaction);
         }
-        System.out.println(expensesInGivenMonth);
-        return expensesInGivenMonth;
     }
 
-    public long getAvgOfDailyExpensesOfLastMonth() {
-        Calendar calendar = new GregorianCalendar();
+    public long getSumOfIncome(List<Transaction> transactionList) {
+
         long sum = 0;
-        List<Transaction> dailyExpenses = getExpensesOfLastMonth();
 
-        for (Transaction transaction : dailyExpenses) {
-            sum += transaction.getValue();
+        for (Transaction transaction : transactionList) {
+            if (transaction.getValue() > 0) {
+                sum += transaction.getValue();
+            }
         }
 
-        if (dailyExpenses.size() != 0) {
-            return sum / dailyExpenses.size();
-        } else {
-            return 0;
+        return Math.abs(sum);
+    }
+
+    public long getSumOfExpenses(List<Transaction> transactionList) {
+
+        long sum = 0;
+
+        for (Transaction transaction : transactionList) {
+            if (transaction.getValue() < 0) {
+                sum += transaction.getValue();
+            }
         }
+
+        return Math.abs(sum);
+    }
+
+    public long getSumOf(List<Long> numberList) {
+        long sum = 0;
+
+        for (long num : numberList) {
+            sum += num;
+        }
+
+        return sum;
+    }
+
+    public long getAvgOfExpenses(List<Transaction> transactionList) {
+        return getSumOfExpenses(transactionList) / transactionList.size();
+    }
+
+    public long getAvgOfDailyExpenses(Calendar calendar) {
+        List<Long> dailyAvgs = new ArrayList<>();
+
+        for (int i = 1; i < calendar.getActualMaximum(Calendar.DAY_OF_MONTH) + 1; i++) {
+            calendar.set(Calendar.DAY_OF_MONTH, i);
+            if (findByYearAndMonthAndDay(calendar).size() != 0) {
+                dailyAvgs.add(getAvgOfExpenses(findByYearAndMonthAndDay(calendar)));
+            }
+        }
+
+        return getAvgOf(dailyAvgs);
+    }
+
+    public long getAvgOf(List<Long> numberList) {
+        return getSumOf(numberList) / numberList.size();
+    }
+
+    public List<Transaction> findByYearAndMonthAndDay(Calendar calendar) {
+        return TransactionRepository.findByYearAndMonthAndDay(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+    }
+
+    public List<Transaction> findByYearAndMonth(Calendar calendar) {
+        return TransactionRepository.findByYearAndMonth(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH));
     }
 
 

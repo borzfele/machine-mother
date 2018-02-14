@@ -17,8 +17,12 @@ public class Transaction {
     long value;
     @Column(name = "description")
     String description;
-    @Column(name="date", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable=false)
-    private Calendar date;
+    @Column(name = "year")
+    private int year;
+    @Column(name = "month")
+    private int month;
+    @Column(name = "day")
+    private int day;
     @Column(name = "continous")
     boolean isContinous;
 
@@ -81,12 +85,28 @@ public class Transaction {
         this.description = description;
     }
 
-    public Calendar getDate() {
-        return date;
+    public int getYear() {
+        return year;
     }
 
-    public void setDate(Calendar date) {
-        this.date = date;
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
     }
 
     public boolean isContinous() {
