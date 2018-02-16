@@ -5,61 +5,135 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'/>
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Reenie+Beanie" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/index.css}"/>
     <title>Machine Mother</title>
 </head>
 <body>
-    <div class="container" id="outer-container">
-        <div class="container" id="daily-container">
-            <div>something</div>
-        </div>
-        <div class="container" id="week-container">
-            <div>same here</div>
-        </div>
-        <div class="container" id="budget-container">
-            <div class="container element" id="budget-element-title">Budget</div>
-            <div class="container" id="daily-income">
-                <div class="container element" id="daily-income-label">Daily Income</div>
-                <div class="container element" id="daily-income-value" th:text="${sumOfDailyIncome}"></div>
-            </div>
-            <div class="container" id="daily-expenses">
-                <div class="container element" id="daily-expenses-label">Daily Expenses</div>
-                <div class="container element" id="daily-expenses-value" th:text="${sumOfDailyExpenses}"></div>
-            </div>
-            <div class="container" id="daily-balance">
-                <div class="container element" id="daily-balance-label">Daily Balance</div>
-                <div class="container element" id="daily-balance-value" th:text="${dailyBalance}"></div>
-            </div>
-            <div class="container" id="avg-expenses-per-day">
-                <div class="container element" id="avg-expenses-per-day-label">Average Expenses/Day</div>
-                <div class="container element" id="avg-expenses-per-day-value" th:text="${avgExpensesPerDay}"></div>
-            </div>
-            <div class="container" id="income-this-month">
-                <div class="container element" id="income-this-month-label">This Month's Income</div>
-                <div class="container element" id="income-this-month-value" th:text="${monthlyIncome}"></div>
-            </div>
-            <div class="container" id="expenses-this-month">
-                <div class="container element" id="expenses-this-month-label">This Month's Expenses</div>
-                <div class="container element" id="expenses-this-month-value" th:text="${monthlyExpenses}"></div>
-            </div>
-            <div class="container" id="monthly-balance">
-                <div class="container element" id="monthly-balance-label">Monthly Balance</div>
-                <div class="container element" id="monthly-balance-value" th:text="${monthlyBalance}"></div>
-            </div>
 
-            <div class="container element" id="budget-element-add-income">
-                <a href="/add-new-income">
-                    <button>Add income</button>
-                </a>
+    <div class="container">
+        <div class="row">
+            <div id="container" style="white-space:nowrap">
+                <div id="image" style="display:inline">
+                    <img class="pull-left rounded" id="logo" src="/export.png" alt="MM"/>
+                </div>
+                <div id="MMTitle">
+                    Machine Mother
+                </div>
             </div>
-            <div class="container element" id="budget-element-add-expense">
-                <a href="/add-new-expense">
-                    <button>Add expense</button>
-                </a>
+            <div class="col-md-3">
+                <div class="col-sm-12 modules today">
+                    <div class="row title">
+                        Today's To-Do
+                    </div>
+                    <div class="col-sm-12" >
+                        <ul class="todaytodo">
+                            <li><p>Work hh:mm - hh:mm</p></li>
+                            <li><p>Shopping hh:mm - hh:mm</p></li>
+                            <li><p>Washing clothes @ hh:mm</p></li>
+                            <li><p>Cooking hh:mm - hh:mm</p></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 today">
+                    <div class="row title">Today's Meal</div>
+                    <div class="col-sm-12" >
+                        <ul>
+                            <li><p>Granola</p><span>50 g - 180 Kcal</span></li>
+                            <li><p>Banana Milkshake</p><span>5 dl - 416 Kcal</span></li>
+                            <li><p>Chicken Ragout Soup</p><span>2.5 dl - 159 Kcal</span></li>
+                            <li><p>Melák's Salad</p><span>300 g - 666 Kcal</span></li>
+                            <li><p>Tea + Sandwiches</p><span>234 Kcal</span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="container" id="misc-container">
-            <div></div>
+            <div class="col-md-3 modules" id="thisweek">
+                        <div class="header">
+                            <span>This Week</span>
+                        </div>
+                    <div>
+                        <div>Monday</div>
+                        <div>Tuesday</div>
+                        <div>Wednesday</div>
+                        <div>Thursday</div>
+                        <div>Friday</div>
+                        <div>Saturday</div>
+                        <div>Sunday</div>
+                    </div>
+                </div>
+            <div class="col-md-3 modules" id="budget">
+                <div class="header">Budget</div>
+                <div class="budget-container" id="budget-container">
+                    <div id="daily-income">
+                        <div id="daily-income-label">Daily Income</div>
+                        <div class="value" id="daily-income-value" th:text="${sumOfDailyIncome}"></div>
+                    </div>
+                    <div id="daily-expenses">
+                        <div id="daily-expenses-label">Daily Expenses</div>
+                        <div class="value" id="daily-expenses-value" th:text="${sumOfDailyExpenses}"></div>
+                    </div>
+                    <div id="daily-balance">
+                        <div id="daily-balance-label">Daily Balance</div>
+                        <div class="value" id="daily-balance-value" th:text="${dailyBalance}"></div>
+                    </div>
+                    <div id="avg-expenses-per-day">
+                        <div id="avg-expenses-per-day-label">Average Expenses/Day</div>
+                        <div class="value" id="avg-expenses-per-day-value" th:text="${avgExpensesPerDay}"></div>
+                    </div>
+                    <div id="income-this-month">
+                        <div id="income-this-month-label">This Month's Income</div>
+                        <div class="value" id="income-this-month-value" th:text="${monthlyIncome}"></div>
+                    </div>
+                    <div id="expenses-this-month">
+                        <div id="expenses-this-month-label">This Month's Expenses</div>
+                        <div class="value" id="expenses-this-month-value" th:text="${monthlyExpenses}"></div>
+                    </div>
+                    <div id="monthly-balance">
+                        <div id="monthly-balance-label">Monthly Balance</div>
+                        <div class="value" id="monthly-balance-value" th:text="${monthlyBalance}"></div>
+                    </div>
+
+                    <div id="budget-element-add-income">
+                        <a href="/add-new-income">
+                            <button>Add income</button>
+                        </a>
+                    </div>
+                    <div id="budget-element-add-expense">
+                        <a href="/add-new-expense">
+                            <button>Add expense</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 modules">
+                    <div class="header">Reminders</div>
+                    <div>
+                        <div class="reminder">
+                            <h3>Real Mom's Birthday On Sunday</h3>
+                            <p>Buy some dead floral to make her happy. Pretend you knew it yourself.</p>
+                        </div>
+                        <div class="reminder">
+                            <h3>Presentation on Friday</h3>
+                            <p>Don't forget to cut your beard, and put on your lucky socks.</p>
+                        </div>
+                    </div>
+            </div>
         </div>
     </div>
+
+
+
 </body>
 </html>
