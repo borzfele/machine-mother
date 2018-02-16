@@ -4,10 +4,6 @@ import com.borzfele.machinemother.model.Transaction;
 import com.borzfele.machinemother.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.swing.tree.TreeNode;
-import java.lang.reflect.Array;
 import java.util.*;
 
 @Service
