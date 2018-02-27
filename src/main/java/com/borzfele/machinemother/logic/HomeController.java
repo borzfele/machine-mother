@@ -1,6 +1,6 @@
 package com.borzfele.machinemother.logic;
 
-import com.borzfele.machinemother.dao.TransactionService;
+import com.borzfele.machinemother.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
 package com.borzfele.machinemother.util;
 
-import com.borzfele.machinemother.dao.TransactionService;
+import com.borzfele.machinemother.services.TransactionService;
 import com.borzfele.machinemother.model.Transaction;
 import org.springframework.stereotype.Component;
 

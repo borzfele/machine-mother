@@ -1,4 +1,4 @@
-package com.borzfele.machinemother.dao;
+package com.borzfele.machinemother.services;
 
 import com.borzfele.machinemother.model.Transaction;
 import com.borzfele.machinemother.repository.TransactionRepository;
