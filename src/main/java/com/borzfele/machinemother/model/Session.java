@@ -18,4 +18,6 @@ public class Session {
     private BigInteger lastAccessTime;
     @Column(name = "max_inactive_interval")
     private Integer maxInactiveInterval;
+    @Column(name = "principal_name")
+    private String principalName;
 }

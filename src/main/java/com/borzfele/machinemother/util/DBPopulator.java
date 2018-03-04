@@ -1,22 +1,43 @@
 package com.borzfele.machinemother.util;
 
+import com.borzfele.machinemother.model.Role;
+import com.borzfele.machinemother.model.User;
+import com.borzfele.machinemother.services.RoleService;
 import com.borzfele.machinemother.services.TransactionService;
 import com.borzfele.machinemother.model.Transaction;
+import com.borzfele.machinemother.services.UserService;
+import com.borzfele.machinemother.services.UserServiceImpl;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
 public class DBPopulator {
 
+    public DBPopulator(TransactionService transactionService, RoleService roleService, UserServiceImpl userService) {
 
+        User user = new User();
+        user.setName("asd");
+        user.setPassword("asd");
 
-    private TransactionService transactionService;
+        PasswordEncoder encriptor = new BCryptPasswordEncoder();
+        Role userRole = roleService.findByName("user");
 
+        if (userRole != null) {
+            user.getRoles().add(userRole);
+        } else {
+            Role freshlyCreatedUserRole = new Role("user");
+            user.getRoles().add(freshlyCreatedUserRole);
+        }
 
-    public DBPopulator(TransactionService transactionService) {
-        this.transactionService = transactionService;
+        user.setPassword(encriptor.encode(user.getPassword()));
+        userService.saveUser(user);
+
         Calendar date1 = new GregorianCalendar(2018,0, 19, 20, 12, 1);
         Calendar date2 = new GregorianCalendar(2018,0, 21, 20, 12, 1);
         Calendar date3 = new GregorianCalendar(2018,0, 22, 20, 12, 1);
@@ -24,18 +45,18 @@ public class DBPopulator {
         Calendar date5 = new GregorianCalendar(2018,0, 24, 20, 12, 1);
         Calendar date6 = new GregorianCalendar(2018,1, 24, 20, 12, 1);
 
-        Transaction expense1 = new Transaction("pizza", -1490, "Marximban, jóság volt.");
-        Transaction expense2 = new Transaction("banánsöröcs", -590, "Marximban, jóság volt.");
-        Transaction expense3 = new Transaction("rózsa", -600, "random csőlakó nénitől");
-        Transaction expense4 = new Transaction("bevásárlás", -12345, "listán látod");
-        Transaction expense5 = new Transaction("bevásárlás", -3245, "listán látod");
-        Transaction expense6 = new Transaction("bevásárlás", -4321, "listán látod");
-        Transaction expense7 = new Transaction("bevásárlás", -567, "listán látod");
-        Transaction expense8 = new Transaction("bevásárlás", -567, "listán látod");
-        Transaction expense9 = new Transaction("bevásárlás", -567, "listán látod");
+        Transaction expense1 = new Transaction("pizza", -1490, "Marximban, jóság volt.", user);
+        Transaction expense2 = new Transaction("banánsöröcs", -590, "Marximban, jóság volt.", user);
+        Transaction expense3 = new Transaction("rózsa", -600, "random csőlakó nénitől", user);
+        Transaction expense4 = new Transaction("bevásárlás", -12345, "listán látod", user);
+        Transaction expense5 = new Transaction("bevásárlás", -3245, "listán látod", user);
+        Transaction expense6 = new Transaction("bevásárlás", -4321, "listán látod", user);
+        Transaction expense7 = new Transaction("bevásárlás", -567, "listán látod", user);
+        Transaction expense8 = new Transaction("bevásárlás", -567, "listán látod", user);
+        Transaction expense9 = new Transaction("bevásárlás", -567, "listán látod", user);
 
-        Transaction income = new Transaction("pizza", 43000, "fizuka", true);
-        Transaction income2 = new Transaction("pizza", 43000, "fizuka", true);
+        Transaction income = new Transaction("pizza", 43000, "fizuka", true, user);
+        Transaction income2 = new Transaction("pizza", 43000, "fizuka", true, user);
 
         expense1.setYear(date1.get(Calendar.YEAR));
         expense1.setMonth(date1.get(Calendar.MONTH));
@@ -78,6 +99,7 @@ public class DBPopulator {
         transactionService.saveTransaction(income);
         transactionService.saveTransaction(expense8);
         transactionService.saveTransaction(income2);
+
     }
 
 }

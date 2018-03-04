@@ -2,6 +2,7 @@ package com.borzfele.machinemother.logic;
 
 import com.borzfele.machinemother.services.TransactionService;
 import com.borzfele.machinemother.model.Transaction;
+import com.borzfele.machinemother.services.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TransactionController {
 
     private TransactionService transactionService;
+    private UserServiceImpl userService;
 
-    public TransactionController(TransactionService transactionService) {
+    public TransactionController(TransactionService transactionService, UserServiceImpl userService) {
         this.transactionService = transactionService;
+        this.userService = userService;
     }
     @RequestMapping(value = "/add-new-income", method = RequestMethod.GET)
     public String renderAddIncomeForm(Model model) {
@@ -30,8 +33,9 @@ public class TransactionController {
         } else {
             transaction.setContinous(false);
         }
+        transaction.setOwner(userService.getCurrentUser());
         transactionService.addTransaction(transaction);
-        return "redirect:/";
+        return "redirect:/index";
     }
 
     @RequestMapping(value = "/add-new-expense", method = RequestMethod.GET)
@@ -47,8 +51,9 @@ public class TransactionController {
         } else {
             transaction.setContinous(false);
         }
+        transaction.setOwner(userService.getCurrentUser());
         transaction.setValue(transaction.getValue() * -1);
         transactionService.addTransaction(transaction);
-        return "redirect:/";
+        return "redirect:/index";
     }
 }

@@ -10,13 +10,13 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
     @Column(name = "name")
-    String name;
+    private String name;
     @Column(name = "value")
-    long value;
+    private long value;
     @Column(name = "description")
-    String description;
+    private String description;
     @Column(name = "year")
     private int year;
     @Column(name = "month")
@@ -24,7 +24,17 @@ public class Transaction {
     @Column(name = "day")
     private int day;
     @Column(name = "continous")
-    boolean isContinous;
+    private boolean isContinous;
+    @ManyToOne
+    private User owner;
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 
     public Transaction() {
     }
@@ -51,6 +61,21 @@ public class Transaction {
         this.value = value;
         this.description = description;
         this.isContinous = isContinous;
+    }
+
+    public Transaction(String name, long value, String description, User owner) {
+        this.name = name;
+        this.value = value;
+        this.description = description;
+        this.owner = owner;
+    }
+
+    public Transaction(String name, long value, String description, boolean isContinous, User owner) {
+        this.name = name;
+        this.value = value;
+        this.description = description;
+        this.isContinous = isContinous;
+        this.owner = owner;
     }
 
     public long getId() {

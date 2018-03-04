@@ -1,6 +1,7 @@
 package com.borzfele.machinemother.services;
 
 import com.borzfele.machinemother.model.Transaction;
+import com.borzfele.machinemother.model.User;
 import com.borzfele.machinemother.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,8 +10,12 @@ import java.util.*;
 @Service
 public class TransactionService {
 
+    private final TransactionRepository TransactionRepository;
+
     @Autowired
-    private TransactionRepository TransactionRepository;
+    public TransactionService(TransactionRepository TransactionRepository) {
+        this.TransactionRepository = TransactionRepository;
+    }
 
     public void saveTransaction(Transaction transaction) {
         TransactionRepository.save(transaction);
@@ -61,7 +66,7 @@ public class TransactionService {
         return Math.abs(sum);
     }
 
-    public long getSumOf(List<Long> numberList) {
+    private long getSumOf(List<Long> numberList) {
         long sum = 0;
 
         for (long num : numberList) {
@@ -71,25 +76,30 @@ public class TransactionService {
         return sum;
     }
 
-    public long getAvgOfExpenses(List<Transaction> transactionList) {
+    private long getAvgOfExpenses(List<Transaction> transactionList) {
         return getSumOfExpenses(transactionList) / transactionList.size();
     }
 
-    public long getAvgOfDailyExpenses(Calendar calendar) {
+    public long getAvgOfDailyExpensesByOwner(Calendar calendar, User owner) {
         List<Long> dailyAvgs = new ArrayList<>();
 
         for (int i = 1; i < calendar.getActualMaximum(Calendar.DAY_OF_MONTH) + 1; i++) {
             calendar.set(Calendar.DAY_OF_MONTH, i);
-            if (findByYearAndMonthAndDay(calendar).size() != 0) {
-                dailyAvgs.add(getAvgOfExpenses(findByYearAndMonthAndDay(calendar)));
+            if (findByYearAndMonthAndDayAndOwner(calendar, owner).size() != 0) {
+                dailyAvgs.add(getAvgOfExpenses(findByYearAndMonthAndDayAndOwner(calendar, owner)));
             }
         }
 
         return getAvgOf(dailyAvgs);
     }
 
-    public long getAvgOf(List<Long> numberList) {
-        return getSumOf(numberList) / numberList.size();
+    private long getAvgOf(List<Long> numberList) {
+
+        if (numberList.size() != 0) {
+            return getSumOf(numberList) / numberList.size();
+        } else {
+            return 0;
+        }
     }
 
     public List<Transaction> findByYearAndMonthAndDay(Calendar calendar) {
@@ -98,6 +108,14 @@ public class TransactionService {
 
     public List<Transaction> findByYearAndMonth(Calendar calendar) {
         return TransactionRepository.findByYearAndMonth(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH));
+    }
+
+    public List<Transaction> findByYearAndMonthAndDayAndOwner(Calendar calendar, User owner) {
+        return TransactionRepository.findByYearAndMonthAndDayAndOwner(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), owner);
+    }
+
+    public List<Transaction> findByYearAndMonthAndOwner(Calendar calendar, User owner) {
+        return TransactionRepository.findByYearAndMonthAndOwner(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), owner);
     }
 
 

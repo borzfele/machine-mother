@@ -15,5 +15,5 @@ public class SessionAttribute {
     @Column(name = "attribute_name")
     private String attributeName;
     @Column(name = "attribute_bytes")
-    private Byte attributeBytes;
+    private byte[] attributeBytes;
 }

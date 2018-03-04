@@ -1,7 +1,9 @@
 package com.borzfele.machinemother.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,6 +24,8 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name="role_id")}
     )
     private Set<Role> roles = new HashSet<Role>();
+    @OneToMany(mappedBy = "owner")
+    List<Transaction> transactions = new ArrayList<>();
 
     public User() {
     }
@@ -29,6 +33,16 @@ public class User {
     public User(String name, String password) {
         this.name = name;
         this.password = password;
+    }
+
+    public User(String name, String password, HashSet<Role> roles) {
+        this.name = name;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    public void addRole(Role role) {
+        roles.add(role);
     }
 
     public String getName() {

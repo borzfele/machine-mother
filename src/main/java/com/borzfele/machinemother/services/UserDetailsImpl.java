@@ -15,7 +15,6 @@ public class UserDetailsImpl implements UserDetails {
     private User user;
 
     public UserDetailsImpl(User user) {
-        System.out.println("userdetimpl, username is: " + user.getName());
         this.user = user;
     }
 
@@ -33,6 +32,8 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
+
+
         return user.getPassword();
     }
 
