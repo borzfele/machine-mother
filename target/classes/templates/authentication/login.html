@@ -17,13 +17,11 @@
 <body>
 
 <div class="col-xs-4" id="form-cont">
-    <div class="jumbotron">
-        <div>
-            <img src="/images/machine-mother-login-logo.png" alt="MM"/>
-            <span>machine mother</span>
-        </div>
+    <div id="header">
+        <img src="/images/machine-mother-login-logo.png" alt="MM"/>
+        <span>machine mother</span>
     </div>
-
+    <h1>login</h1>
     <form th:action="@{/login}" method="post">
         <div>
             <input type="text" id="username" name="username" placeholder="username"/>

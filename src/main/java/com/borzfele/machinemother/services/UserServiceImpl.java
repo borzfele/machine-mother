@@ -2,6 +2,8 @@ package com.borzfele.machinemother.services;
 
 import com.borzfele.machinemother.model.User;
 import com.borzfele.machinemother.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     private UserRepository userRepository;
 
     @Autowired
@@ -22,19 +25,21 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public User findByName(String name) {
+        logger.info("looking for user: " + name);
         return userRepository.findByName(name);
     }
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 
-
         User user = findByName(name);
 
         if (user == null) {
+            logger.info("There's no user with name: " + name);
             throw new UsernameNotFoundException(name);
         }
 
+        logger.info("returning UserDetailsImpl with name: " + user.getName() +" and role: " + user.getRoles().toString());
         return new UserDetailsImpl(user);
     }
 

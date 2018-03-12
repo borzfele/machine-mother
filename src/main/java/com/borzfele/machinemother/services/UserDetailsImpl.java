@@ -2,6 +2,8 @@ package com.borzfele.machinemother.services;
 
 import com.borzfele.machinemother.model.Role;
 import com.borzfele.machinemother.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,8 +12,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+
 public class UserDetailsImpl implements UserDetails {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserDetailsImpl.class);
     private User user;
 
     public UserDetailsImpl(User user) {
@@ -24,6 +28,7 @@ public class UserDetailsImpl implements UserDetails {
         Set<Role> roles = user.getRoles();
 
         for (Role role : roles) {
+            logger.info(role.getName());
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
 
@@ -32,8 +37,6 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
-
-
         return user.getPassword();
     }
 

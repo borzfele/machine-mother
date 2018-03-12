@@ -4,19 +4,30 @@ body {
     background-color: rgba(0, 128, 0, 0.3);
 }
 
-#form-cont {
-    top: 10vh;
+h1 {
+    color: white;
+    margin-top: 0vh;
 }
 
-.jumbotron {
+#form-cont {
+    background-color: rgba(0,128,0,0.5);
+    border: 1px solid darkgreen;
+    padding: 5vh 3vh 5vh 3vh;
+    top: 10vh;
+    float: none;
+    margin: auto;
+}
+
+#header {
+    padding: 1vh;
     display: block;
     background-color: white;
     color: green;
     font-size: 3vw;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border-radius: 255vh 15vh 225vh 15vh/15vh 225vh 15vh 255vh;
 }
 
-.jumbotron div {
+#header div {
     margin: auto;
 }
 
@@ -34,7 +45,7 @@ span {
 input, button {
     width: 100%;
     border: 1px solid darkgreen;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border-radius: 255vh 15vh 225vh 15vh/15vh 225vh 15vh 255vh;
     padding: 1vh;
 }
 
@@ -68,10 +79,5 @@ a:hover {
 }
 
 a {
-    color: darkgreen;
-}
-
-#form-cont {
-    float: none;
-    margin: auto;
+    color: white;
 }

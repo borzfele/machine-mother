@@ -7,13 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
     <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'/>
     <link href="https://fonts.googleapis.com/css?family=Caveat|Reenie+Beanie" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/css/index.css}"/>
@@ -21,6 +18,97 @@
 </head>
 <body>
 
+<!--header-->
+
+<div class="container" id="header">
+    <div class="col-xs-9" id="logo">
+        <img src="/images/export.png" alt="MM"/>
+        <span id="MMTitle">
+            Machine Mother
+        </span>
+    </div>
+    <div id="logout-cont" class="col-xs-3">
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" value="Sign Out">Log out</button>
+        </form>
+    </div>
+</div>
+
+<!-- module containers -->
+
+<div class="container" id="module-container-container">
+
+    <div class="col-xs-3 module-cont">
+        <h3 class="title">today</h3>
+        <div id="to-do">
+            <ul>
+                <li><p>Work hh:mm - hh:mm</p></li>
+                <li><p>Shopping hh:mm - hh:mm</p></li>
+                <li><p>Washing clothes @ hh:mm</p></li>
+                <li><p>Cooking hh:mm - hh:mm</p></li>
+            </ul>
+        </div>
+        <h3 class="title">today's meal</h3>
+        <div id="meal">
+            <ul>
+                <li><p>Granola</p><span>50 g - 180 Kcal</span></li>
+                <li><p>Banana Milkshake</p><span>5 dl - 416 Kcal</span></li>
+                <li><p>Chicken Ragout Soup</p><span>2.5 dl - 159 Kcal</span></li>
+                <li><p>Melák's Salad</p><span>300 g - 666 Kcal</span></li>
+                <li><p>Tea + Sandwiches</p><span>234 Kcal</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-xs-3 module-cont">
+        <span>calendar</span>
+    </div>
+    <div class="col-xs-3 module-cont">
+        <span>Budget</span>
+        <div class="budget-container" id="budget-container">
+            <div id="daily-income">
+                <div id="daily-income-label">Daily Income</div>
+                <div class="value" id="daily-income-value" th:text="${sumOfDailyIncome}"></div>
+            </div>
+            <div id="daily-expenses">
+                <div id="daily-expenses-label">Daily Expenses</div>
+                <div class="value" id="daily-expenses-value" th:text="${sumOfDailyExpenses}"></div>
+            </div>
+            <div id="daily-balance">
+                <div id="daily-balance-label">Daily Balance</div>
+                <div class="value" id="daily-balance-value" th:text="${dailyBalance}"></div>
+            </div>
+            <div id="avg-expenses-per-day">
+                <div id="avg-expenses-per-day-label">Average Expenses/Day</div>
+                <div class="value" id="avg-expenses-per-day-value" th:text="${avgExpensesPerDay}"></div>
+            </div>
+            <div id="income-this-month">
+                <div id="income-this-month-label">This Month's Income</div>
+                <div class="value" id="income-this-month-value" th:text="${monthlyIncome}"></div>
+            </div>
+            <div id="expenses-this-month">
+                <div id="expenses-this-month-label">This Month's Expenses</div>
+                <div class="value" id="expenses-this-month-value" th:text="${monthlyExpenses}"></div>
+            </div>
+            <div id="monthly-balance">
+                <div id="monthly-balance-label">Monthly Balance</div>
+                <div class="value" id="monthly-balance-value" th:text="${monthlyBalance}"></div>
+            </div>
+
+            <div id="budget-element-add-income">
+                <a href="/add-new-income">
+                    <button>Add income</button>
+                </a>
+                <a href="/add-new-expense">
+                    <button>Add expense</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 module-cont">reminders</div>
+</div>
+
+<!--
     <div class="container">
         <div class="row">
             <div id="container" style="white-space:nowrap">
@@ -36,6 +124,7 @@
                     </form>
                 </div>
             </div>
+
             <div class="col-md-3">
                 <div class="col-sm-12 modules today">
                     <div class="row title">
@@ -139,6 +228,6 @@
     </div>
 
 
-
+-->
 </body>
 </html>

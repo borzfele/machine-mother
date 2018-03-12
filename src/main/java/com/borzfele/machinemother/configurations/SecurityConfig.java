@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
         httpSecurity
                 .authorizeRequests()
-                .antMatchers("/public/**", "/registration").permitAll()
+                .antMatchers("/", "/public/**", "/registration").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin().loginPage("/login").permitAll()
