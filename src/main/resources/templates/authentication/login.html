@@ -2,19 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'/>
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Reenie+Beanie" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    <title>machine mother</title>
 </head>
 <body>
-<form th:action="@{/login}" method="post">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username"/>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password"/>
-    <button type="submit">Sign in</button>
-</form>
 
-<p>
-    <a href="/registration"> Get your Machine Mother here! </a>
-</p>
+<div class="col-xs-4" id="form-cont">
+    <div class="jumbotron">
+        <div>
+            <img src="/images/machine-mother-login-logo.png" alt="MM"/>
+            <span>machine mother</span>
+        </div>
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <div>
+            <input type="text" id="username" name="username" placeholder="username"/>
+        </div>
+        <div>
+            <input type="password" name="password" id="password" placeholder="password"/>
+        </div>
+        <button type="submit">sign in</button>
+        <div id="forgot-details">
+            <a href="#">you shouldn't forget your login details</a>
+        </div>
+    </form>
+
+    <p>
+        <a href="/registration"> get your machine mother here! </a>
+    </p>
+
+</div>
+
 </body>
 </html>
