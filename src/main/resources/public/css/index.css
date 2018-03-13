@@ -14,8 +14,26 @@ body {
     float: none;
 }
 
+#greeting {
+    margin-top: 3vh;
+    height: 100%;
+    font-size: 2vw;
+    text-align: right;
+}
+
+#header form {
+    margin-top: 1vh;
+    font-size: 2vw;
+    width: 100%;
+}
+
+#header form button {
+    font-size: 2vw;
+    width: 100%;
+}
+
 p {
-    margin-bottom: 0vh;
+    margin-bottom: 0px;
 }
 
 #meal span {
@@ -42,7 +60,7 @@ p {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 
 /* Track */
@@ -76,5 +94,20 @@ p {
 }
 
 .title {
+    font-size: 2vw;
+}
 
+button {
+    background-color: rgba(0,128,0,0.6);
+    color: white;
+    border: 1px solid darkgreen;
+    border-radius: 255vh 15vh 225vh 15vh/15vh 225vh 15vh 255vh;
+    padding: 1vh;}
+
+#create-transaction {
+    margin-top: 1.8vh;
+}
+
+.value {
+    color: darkgrey;
 }

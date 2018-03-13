@@ -21,15 +21,16 @@
 <!--header-->
 
 <div class="container" id="header">
-    <div class="col-xs-9" id="logo">
+    <div class="col-xs-6" id="logo">
         <img src="/images/export.png" alt="MM"/>
         <span id="MMTitle">
             Machine Mother
         </span>
     </div>
-    <div id="logout-cont" class="col-xs-3">
+    <div class="col-xs-4 container" id="greeting" th:text="${greeting}"></div>
+    <div id="logout-cont" class="col-xs-2 container">
         <form th:action="@{/logout}" method="post">
-            <button type="submit" value="Sign Out">Log out</button>
+            <button type="submit" value="Sign Out">log out</button>
         </form>
     </div>
 </div>
@@ -39,7 +40,7 @@
 <div class="container" id="module-container-container">
 
     <div class="col-xs-3 module-cont">
-        <h3 class="title">today</h3>
+        <span class="title">today</span>
         <div id="to-do">
             <ul>
                 <li><p>Work hh:mm - hh:mm</p></li>
@@ -48,7 +49,7 @@
                 <li><p>Cooking hh:mm - hh:mm</p></li>
             </ul>
         </div>
-        <h3 class="title">today's meal</h3>
+        <span class="title">today's meal</span>
         <div id="meal">
             <ul>
                 <li><p>Granola</p><span>50 g - 180 Kcal</span></li>
@@ -61,51 +62,51 @@
     </div>
 
     <div class="col-xs-3 module-cont">
-        <span>calendar</span>
+        <span class="title">calendar</span>
     </div>
     <div class="col-xs-3 module-cont">
-        <span>Budget</span>
+        <span class="title">budget</span>
         <div class="budget-container" id="budget-container">
             <div id="daily-income">
-                <div id="daily-income-label">Daily Income</div>
+                <div id="daily-income-label">daily income</div>
                 <div class="value" id="daily-income-value" th:text="${sumOfDailyIncome}"></div>
             </div>
             <div id="daily-expenses">
-                <div id="daily-expenses-label">Daily Expenses</div>
+                <div id="daily-expenses-label">daily expenses</div>
                 <div class="value" id="daily-expenses-value" th:text="${sumOfDailyExpenses}"></div>
             </div>
-            <div id="daily-balance">
-                <div id="daily-balance-label">Daily Balance</div>
-                <div class="value" id="daily-balance-value" th:text="${dailyBalance}"></div>
-            </div>
             <div id="avg-expenses-per-day">
-                <div id="avg-expenses-per-day-label">Average Expenses/Day</div>
+                <div id="avg-expenses-per-day-label">average expenses/day</div>
                 <div class="value" id="avg-expenses-per-day-value" th:text="${avgExpensesPerDay}"></div>
             </div>
             <div id="income-this-month">
-                <div id="income-this-month-label">This Month's Income</div>
+                <div id="income-this-month-label">this month's income</div>
                 <div class="value" id="income-this-month-value" th:text="${monthlyIncome}"></div>
             </div>
             <div id="expenses-this-month">
-                <div id="expenses-this-month-label">This Month's Expenses</div>
+                <div id="expenses-this-month-label">this month's expenses</div>
                 <div class="value" id="expenses-this-month-value" th:text="${monthlyExpenses}"></div>
             </div>
             <div id="monthly-balance">
-                <div id="monthly-balance-label">Monthly Balance</div>
+                <div id="monthly-balance-label">monthly balance</div>
                 <div class="value" id="monthly-balance-value" th:text="${monthlyBalance}"></div>
             </div>
 
-            <div id="budget-element-add-income">
+            <div id="create-transaction">
                 <a href="/add-new-income">
-                    <button>Add income</button>
+                    <button>add income</button>
                 </a>
                 <a href="/add-new-expense">
-                    <button>Add expense</button>
+                    <button>add expense</button>
                 </a>
             </div>
         </div>
     </div>
-    <div class="col-xs-3 module-cont">reminders</div>
+    <div class="col-xs-3 module-cont">
+        <span class="title">
+            reminders
+        </span>
+    </div>
 </div>
 
 <!--

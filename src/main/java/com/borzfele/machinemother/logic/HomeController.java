@@ -43,14 +43,15 @@ public class HomeController {
         long avgExpensesPerDay = transactionService.getAvgOfDailyExpensesByOwner(prevMonth, owner);
         long monthlyIncome = transactionService.getSumOfIncome(transactionService.findByYearAndMonthAndOwner(calendar, owner));
         long monthlyExpenses = transactionService.getSumOfExpenses(transactionService.findByYearAndMonthAndOwner(calendar, owner));
+        String greeting = "Hello, " + userService.getCurrentUser().getName() + ", my old friend!";
 
         model.addAttribute("sumOfDailyIncome", incomeByDay);
         model.addAttribute("sumOfDailyExpenses", expensesByDay);
-        model.addAttribute("dailyBalance", incomeByDay - expensesByDay);
         model.addAttribute("avgExpensesPerDay", avgExpensesPerDay);
         model.addAttribute("monthlyIncome", monthlyIncome);
         model.addAttribute("monthlyExpenses", monthlyExpenses);
         model.addAttribute("monthlyBalance", monthlyIncome - monthlyExpenses);
+        model.addAttribute("greeting", greeting);
 
         return "home/index";
     }
