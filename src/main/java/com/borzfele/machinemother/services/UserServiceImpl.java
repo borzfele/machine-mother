@@ -1,6 +1,6 @@
 package com.borzfele.machinemother.services;
 
-import com.borzfele.machinemother.model.User;
+import com.borzfele.machinemother.models.User;
 import com.borzfele.machinemother.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

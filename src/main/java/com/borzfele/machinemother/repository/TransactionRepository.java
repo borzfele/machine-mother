@@ -1,13 +1,9 @@
 package com.borzfele.machinemother.repository;
 
-import com.borzfele.machinemother.model.Transaction;
-import com.borzfele.machinemother.model.User;
-import com.borzfele.machinemother.services.UserService;
+import com.borzfele.machinemother.models.Transaction;
+import com.borzfele.machinemother.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.time.Year;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long>{

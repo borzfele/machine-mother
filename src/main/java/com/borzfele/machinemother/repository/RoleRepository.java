@@ -1,6 +1,6 @@
 package com.borzfele.machinemother.repository;
 
-import com.borzfele.machinemother.model.Role;
+import com.borzfele.machinemother.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {

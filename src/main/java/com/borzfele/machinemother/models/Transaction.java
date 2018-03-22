@@ -1,8 +1,6 @@
-package com.borzfele.machinemother.model;
+package com.borzfele.machinemother.models;
 
 import javax.persistence.*;
-import java.util.Calendar;
-import java.util.Date;
 
 @Entity
 @Table(name = "transaction")

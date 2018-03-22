@@ -1,4 +1,4 @@
-package com.borzfele.machinemother.model;
+package com.borzfele.machinemother.models;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
-package com.borzfele.machinemother.model;
+package com.borzfele.machinemother.models;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 
 @Entity
 @Table(name = "spring_session_attributes")

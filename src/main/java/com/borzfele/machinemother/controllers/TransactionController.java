@@ -1,7 +1,7 @@
 package com.borzfele.machinemother.controllers;
 
 import com.borzfele.machinemother.services.TransactionService;
-import com.borzfele.machinemother.model.Transaction;
+import com.borzfele.machinemother.models.Transaction;
 import com.borzfele.machinemother.services.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

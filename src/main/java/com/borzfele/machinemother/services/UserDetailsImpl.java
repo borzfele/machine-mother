@@ -1,7 +1,7 @@
 package com.borzfele.machinemother.services;
 
-import com.borzfele.machinemother.model.Role;
-import com.borzfele.machinemother.model.User;
+import com.borzfele.machinemother.models.Role;
+import com.borzfele.machinemother.models.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;

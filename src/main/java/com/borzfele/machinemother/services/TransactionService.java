@@ -1,7 +1,7 @@
 package com.borzfele.machinemother.services;
 
-import com.borzfele.machinemother.model.Transaction;
-import com.borzfele.machinemother.model.User;
+import com.borzfele.machinemother.models.Transaction;
+import com.borzfele.machinemother.models.User;
 import com.borzfele.machinemother.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

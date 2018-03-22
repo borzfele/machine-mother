@@ -1,11 +1,10 @@
 package com.borzfele.machinemother.util;
 
-import com.borzfele.machinemother.model.Role;
-import com.borzfele.machinemother.model.User;
+import com.borzfele.machinemother.models.Role;
+import com.borzfele.machinemother.models.User;
 import com.borzfele.machinemother.services.RoleService;
 import com.borzfele.machinemother.services.TransactionService;
-import com.borzfele.machinemother.model.Transaction;
-import com.borzfele.machinemother.services.UserService;
+import com.borzfele.machinemother.models.Transaction;
 import com.borzfele.machinemother.services.UserServiceImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,8 +12,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.HashSet;
-import java.util.Set;
 
 @Component
 public class DBPopulator {

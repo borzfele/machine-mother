@@ -1,6 +1,6 @@
 package com.borzfele.machinemother.repository;
 
-import com.borzfele.machinemother.model.User;
+import com.borzfele.machinemother.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package com.borzfele.machinemother.controllers;
 
-import com.borzfele.machinemother.model.User;
+import com.borzfele.machinemother.models.User;
 import com.borzfele.machinemother.services.RoleService;
 import com.borzfele.machinemother.services.TransactionService;
 import com.borzfele.machinemother.services.UserServiceImpl;

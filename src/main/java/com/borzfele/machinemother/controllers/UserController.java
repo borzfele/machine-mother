@@ -1,7 +1,7 @@
 package com.borzfele.machinemother.controllers;
 
-import com.borzfele.machinemother.model.Role;
-import com.borzfele.machinemother.model.User;
+import com.borzfele.machinemother.models.Role;
+import com.borzfele.machinemother.models.User;
 import com.borzfele.machinemother.services.RoleService;
 import com.borzfele.machinemother.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
