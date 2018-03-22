@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6662281f-b6be-493e-8c6a-a59f5500b3d9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/controllers/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/controllers/HomeController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/controllers/TransactionController.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/controllers/TransactionController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/controllers/UserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/model/Role.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/model/Session.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/model/SessionAttribute.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/model/Transaction.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/model/User.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/RoleRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/RoleRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/TransactionRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/TransactionRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/UserRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/RoleRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/RoleRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/TransactionRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/TransactionRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/UserRepository.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/RoleService.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/RoleService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/TransactionService.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/TransactionService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/UserDetailsImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/UserDetailsImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/UserService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/UserServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/util/DBPopulator.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/util/DBPopulator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +25,8 @@
       <file leaf-file-name="registration.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/authentication/registration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            <state relative-caret-position="288">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -414,10 +403,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72543000" />
+    <option name="totallyTimeSpent" value="72606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="16" width="1331" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -440,7 +430,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26220888" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26220888" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -538,7 +528,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
@@ -603,7 +593,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
@@ -633,7 +623,7 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE.jar!/org/springframework/security/core/userdetails/UserDetailsService.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/logic/ViewControllers.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/RoleRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/RoleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
@@ -647,7 +637,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
@@ -692,7 +682,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/TransactionRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/TransactionRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="24" column="82" lean-forward="false" selection-start-line="24" selection-start-column="82" selection-end-line="24" selection-end-column="82" />
@@ -858,8 +848,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/authentication/registration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        <state relative-caret-position="288">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>

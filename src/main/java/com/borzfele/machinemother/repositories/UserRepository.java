@@ -1,4 +1,4 @@
-package com.borzfele.machinemother.repository;
+package com.borzfele.machinemother.repositories;
 
 import com.borzfele.machinemother.models.User;
 import org.springframework.data.repository.CrudRepository;

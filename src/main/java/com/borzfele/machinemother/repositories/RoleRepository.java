@@ -1,4 +1,4 @@
-package com.borzfele.machinemother.repository;
+package com.borzfele.machinemother.repositories;
 
 import com.borzfele.machinemother.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

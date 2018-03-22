@@ -1,7 +1,7 @@
 package com.borzfele.machinemother.services;
 
 import com.borzfele.machinemother.models.User;
-import com.borzfele.machinemother.repository.UserRepository;
+import com.borzfele.machinemother.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
