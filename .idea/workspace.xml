@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6662281f-b6be-493e-8c6a-a59f5500b3d9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/RoleRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/RoleRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/TransactionRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/TransactionRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/repositories/UserRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/RoleService.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/RoleService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/TransactionService.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/TransactionService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/services/UserServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/MachineMother.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/MachineMother.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/util/DBPopulator.java" afterPath="$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/utilities/DBPopulator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +21,8 @@
       <file leaf-file-name="registration.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/authentication/registration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -210,6 +206,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="machinemother" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="machine-mother" type="b2602c69:ProjectViewProjectNode" />
+              <item name="machine-mother" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="machinemother" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -403,7 +408,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72606000" />
+    <option name="totallyTimeSpent" value="72739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="16" width="1331" height="743" extended-state="6" />
@@ -726,7 +731,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/util/DBPopulator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borzfele/machinemother/utilities/DBPopulator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
@@ -848,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/authentication/registration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding />
         </state>
       </provider>

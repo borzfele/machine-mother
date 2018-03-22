@@ -1,4 +1,4 @@
-package com.borzfele.machinemother.util;
+package com.borzfele.machinemother.utilities;
 
 import com.borzfele.machinemother.models.Role;
 import com.borzfele.machinemother.models.User;
