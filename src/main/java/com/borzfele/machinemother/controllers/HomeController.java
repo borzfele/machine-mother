@@ -1,4 +1,4 @@
-package com.borzfele.machinemother.logic;
+package com.borzfele.machinemother.controllers;
 
 import com.borzfele.machinemother.model.User;
 import com.borzfele.machinemother.services.RoleService;
