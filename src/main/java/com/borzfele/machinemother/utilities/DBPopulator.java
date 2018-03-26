@@ -21,6 +21,7 @@ public class DBPopulator {
         User user = new User();
         user.setName("asd");
         user.setPassword("asd");
+        user.setEmail("asd@asd.asd");
 
         PasswordEncoder encriptor = new BCryptPasswordEncoder();
         Role userRole = roleService.findByName("user");

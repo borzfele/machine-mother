@@ -17,6 +17,8 @@ public class User {
     private String name;
     @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
+    private String email;
     @ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER )
     @JoinTable(
             name = "users_roles",
@@ -39,6 +41,14 @@ public class User {
         this.name = name;
         this.password = password;
         this.roles = roles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void addRole(Role role) {
