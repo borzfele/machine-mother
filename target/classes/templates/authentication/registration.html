@@ -23,7 +23,7 @@
             <span>machine mother</span>
         </div>
         <h1>registration</h1>
-        <form th:action="@{/registration}" th:object="${user}" method="post">
+        <form th:action="@{/registration}" th:object="${user}" method="post" id="reg-form">
             <div>
                 <input type="text" th:field="*{name}" placeholder="username" id="username"/>
             </div>

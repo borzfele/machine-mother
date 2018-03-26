@@ -1,3 +1,7 @@
+let isUsernameValid = false;
+let isEmailValid = false;
+let isPasswordValid = false;
+
 function checkUsername() {
 
     let usernameField = $("#username");
@@ -17,8 +21,10 @@ function checkUsername() {
                 usernameField.css("opacity", "0.5");
                 usernameField.css("background-color", "red");
                 usernameField.css("color", "white");
+                isUsernameValid = false;
             } else {
                 usernameField.removeAttr("style");
+                isUsernameValid = true;
             }
 
         },
@@ -42,8 +48,10 @@ function checkEmail() {
         emailField.css("opacity", "0.5");
         emailField.css("background-color", "red");
         emailField.css("color", "white");
+        isEmailValid = false;
     } else {
         emailField.removeAttr("style");
+        isEmailValid = true;
     }
 }
 
@@ -53,16 +61,19 @@ function checkPassword() {
 
     if (passwordField.val() === ""
         || passwordAgainField.val() === ""
-        || !passwordField.val() === passwordAgainField.val()) {
+        || passwordField.val() !== passwordAgainField.val()) {
+
         passwordField.css("opacity", "0.5");
         passwordField.css("background-color", "red");
         passwordField.css("color", "white");
         passwordAgainField.css("opacity", "0.5");
         passwordAgainField.css("background-color", "red");
         passwordAgainField.css("color", "white");
+        isPasswordValid = false;
     } else {
         passwordField.removeAttr("style");
         passwordAgainField.removeAttr("style");
+        isPasswordValid = true;
     }
 }
 
@@ -70,8 +81,8 @@ function main() {
 
     let usernameField = $("#username");
     let emailField = $("#email");
-    let passwordField = $("#password");
     let passwordAgainField = $("#password-again");
+    let passwordField = $("#password");
 
     usernameField.on("focusout", function () {
         checkUsername();
@@ -81,19 +92,22 @@ function main() {
         checkEmail();
     });
 
-    passwordField.on("focusout", function () {
-       checkPassword();
-    });
-
     passwordAgainField.on("focusout", function () {
         checkPassword();
     });
 
-    $("form").on("submit"), function () {
-        checkUsername();
-        checkEmail();
+    passwordField.on("focusout", function () {
         checkPassword();
-    }
+    });
+
+    $("#reg-form").on("submit", function (e) {
+        if (!isUsernameValid || !isEmailValid || !isPasswordValid) {
+            e.preventDefault();
+            alert("fasz");
+        } else {
+            alert("picsa");
+        }
+    })
 }
 
 $(document).ready( function () {
