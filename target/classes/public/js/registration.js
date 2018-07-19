@@ -107,7 +107,7 @@ function main() {
         } else {
             alert("picsa");
         }
-    })
+    });
 }
 
 $(document).ready( function () {

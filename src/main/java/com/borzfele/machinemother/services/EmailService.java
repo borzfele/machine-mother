@@ -21,7 +21,7 @@ public class EmailService {
         this.mailSender = mailSender;
     }
 
-    public void sendMessage(String email, String name) {
+    public void sendMessage(String email, String name, String text) {
         SimpleMailMessage mail = null;
 
         try {
@@ -29,12 +29,7 @@ public class EmailService {
             mail.setFrom(MAIL_FROM);
             mail.setTo(email);
             mail.setSubject("Successful registration");
-            mail.setText("Dear " + name + ", \n\nI can't thank you enough for your trust.\n" +
-                    "I know, it probably was a hard decision for you, " +
-                    "but I still promise my help in regain your social capabilities, " +
-                    "confidence and contentment in this world.\n\n" +
-                    "Be as bad as you want to be," +
-                    "Mom");
+            //mail.setText();
             mailSender.send(mail);
 
         } catch (Exception e) {

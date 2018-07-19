@@ -19,6 +19,9 @@ public class User {
     private String password;
     @Column(nullable = false)
     private String email;
+    private boolean isEnabled;
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
+    private ActivationCode activationCode;
     @ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER )
     @JoinTable(
             name = "users_roles",
@@ -41,6 +44,30 @@ public class User {
         this.name = name;
         this.password = password;
         this.roles = roles;
+    }
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
+    public ActivationCode getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(ActivationCode activationCode) {
+        this.activationCode = activationCode;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 
     public String getEmail() {
